@@ -1,1 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700&display=swap');
+
 @import "tailwindcss";
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(142, 77%, 73%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(24, 95%, 53%);
+  --secondary-foreground: hsl(0, 0%, 100%);
+  --accent: hsl(217, 91%, 60%);
+  --accent-foreground: hsl(0, 0%, 100%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.75rem;
+  
+  /* Custom colors for SupplySetu */
+  --supply-primary: hsl(142, 71%, 45%);
+  --supply-secondary: hsl(24, 95%, 53%);
+  --supply-accent: hsl(217, 91%, 60%);
+  --supply-neutral-50: hsl(210, 20%, 98%);
+  --supply-neutral-100: hsl(220, 14%, 96%);
+  --supply-neutral-200: hsl(220, 13%, 91%);
+  --supply-neutral-300: hsl(216, 12%, 84%);
+  --supply-neutral-400: hsl(218, 11%, 65%);
+  --supply-neutral-500: hsl(220, 9%, 46%);
+  --supply-neutral-600: hsl(215, 14%, 34%);
+  --supply-neutral-700: hsl(217, 19%, 27%);
+  --supply-neutral-800: hsl(215, 28%, 17%);
+  --supply-neutral-900: hsl(221, 39%, 11%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(142, 77%, 73%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1;
+    text-rendering: optimizeLegibility;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-hindi {
+    font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  }
+
+  .font-english {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    background-color: rgb(34 197 94);
+    color: white;
+  }
+  
+  .btn-primary:hover {
+    background-color: rgb(22 163 74);
+  }
+  
+  .btn-secondary {
+    background-color: rgb(249 115 22);
+    color: white;
+  }
+  
+  .btn-secondary:hover {
+    background-color: rgb(234 88 12);
+  }
+  
+  .btn-accent {
+    background-color: rgb(37 99 235);
+    color: white;
+  }
+  
+  .btn-accent:hover {
+    background-color: rgb(29 78 216);
+  }
+  
+  .text-primary {
+    color: rgb(34 197 94);
+  }
+  
+  .text-secondary {
+    color: rgb(249 115 22);
+  }
+  
+  .text-accent {
+    color: rgb(37 99 235);
+  }
+  
+  .bg-primary {
+    background-color: rgb(34 197 94);
+  }
+  
+  .bg-secondary {
+    background-color: rgb(249 115 22);
+  }
+  
+  .bg-accent {
+    background-color: rgb(37 99 235);
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(142, 71%, 45%) 0%, hsl(158, 64%, 52%) 100%);
+  }
+  
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  .card-shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Language toggle button styles */
+  .ring-offset-background {
+    --tw-ring-offset-color: hsl(var(--background));
+  }
+
+  .focus-visible\:outline-none:focus-visible {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .focus-visible\:ring-2:focus-visible {
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  }
+
+  .focus-visible\:ring-ring:focus-visible {
+    --tw-ring-color: hsl(var(--ring));
+  }
+
+  .focus-visible\:ring-offset-2:focus-visible {
+    --tw-ring-offset-width: 2px;
+  }
+
+  .disabled\:pointer-events-none:disabled {
+    pointer-events: none;
+  }
+
+  .disabled\:opacity-50:disabled {
+    opacity: 0.5;
+  }
+
+  .\[&_svg\]\:pointer-events-none svg {
+    pointer-events: none;
+  }
+
+  .\[&_svg\]\:size-4 svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .\[&_svg\]\:shrink-0 svg {
+    flex-shrink: 0;
+  }
+
+  .hover\:bg-accent:hover {
+    background-color: hsl(var(--accent));
+  }
+
+  .hover\:text-accent-foreground:hover {
+    color: hsl(var(--accent-foreground));
+  }
+}
+
+@layer utilities {
+  .spacing-18 {
+    height: 4.5rem;
+    width: 4.5rem;
+  }
+  
+  .spacing-88 {
+    height: 22rem;
+    width: 22rem;
+  }
+  
+  .spacing-112 {
+    height: 28rem;
+    width: 28rem;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Mobile-first responsive breakpoints */
+@media (max-width: 768px) {
+  .mobile-padding {
+    padding: 0.5rem 1rem;
+  }
+  
+  .mobile-text {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  
+  .mobile-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+/* Hindi text optimizations */
+.hindi-text {
+  font-feature-settings: "kern" 1, "liga" 1;
+  text-rendering: optimizeLegibility;
+}

@@ -3,6 +3,7 @@ import LoginPage from './components/LoginPage';
 import OnboardingPage from './components/OnboardingPage';
 import VendorDashboard from './components/VendorDashboard';
 import SupplierDashboard from './components/SupplierDashboard';
+import LanguageToggle from './components/LanguageToggle';
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -10,21 +11,22 @@ export default function App() {
 
   const handleLogout = () => setUser(null);
 
-  if (!user) {
-    return <LoginPage setUser={setUser} language={language} setLanguage={setLanguage} />;
-  }
-
-  if (user.role === 'vendor' && !user.stall_type) {
-    return <OnboardingPage user={user} setUser={setUser} language={language} handleLogout={handleLogout} />;
-  }
-
-  if (user.role === 'vendor') {
-    return <VendorDashboard user={user} language={language} handleLogout={handleLogout} />;
-  }
-
-  if (user.role === 'supplier') {
-    return <SupplierDashboard user={user} language={language} handleLogout={handleLogout} />;
-  }
-
-  return <LoginPage setUser={setUser} language={language} setLanguage={setLanguage} />;
+  return (
+    <div className="relative">
+      {/* Global Language Toggle - only show when user is logged in */}
+      {user && <LanguageToggle language={language} setLanguage={setLanguage} />}
+      
+      {!user ? (
+        <LoginPage setUser={setUser} language={language} setLanguage={setLanguage} />
+      ) : user.role === 'vendor' && !user.stall_type ? (
+        <OnboardingPage user={user} setUser={setUser} language={language} handleLogout={handleLogout} />
+      ) : user.role === 'vendor' ? (
+        <VendorDashboard user={user} language={language} handleLogout={handleLogout} setLanguage={setLanguage} />
+      ) : user.role === 'supplier' ? (
+        <SupplierDashboard user={user} language={language} handleLogout={handleLogout} />
+      ) : (
+        <LoginPage setUser={setUser} language={language} setLanguage={setLanguage} />
+      )}
+    </div>
+  );
 }
